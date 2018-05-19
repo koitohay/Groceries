@@ -62,5 +62,6 @@ export class GroceryListService {
   handleErrors(error: Response) {
     console.log(JSON.stringify(error.json()));
     return Observable.throw(error);
+    
   }
 }
