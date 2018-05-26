@@ -14,6 +14,7 @@ import { TextField } from "ui/text-field";
 export class ListComponent implements OnInit {
     groceryList: Array<Grocery> = [];
     grocery = "";
+    groceryId = -1;
     isLoading = true;
     listLoaded = false;
     @ViewChild("groceryTextField") groceryTextField: ElementRef;
@@ -21,7 +22,7 @@ export class ListComponent implements OnInit {
 
     add() {
         if (this.grocery.trim() === "") {
-          alert("Enter a grocery item");
+          alert("   Enter a grocery item");
           return;
         }
       
@@ -29,22 +30,39 @@ export class ListComponent implements OnInit {
         let textField = <TextField>this.groceryTextField.nativeElement;
         textField.dismissSoftInput();
       
-        this.groceryListService.add(this.grocery)
-          .subscribe(
-            groceryObject => {
-              this.groceryList.unshift(groceryObject);
+        var groceryObject = this.groceryListService.add(this.grocery);
+        this.groceryList.unshift(groceryObject);
               this.grocery = "";
-            },
-            () => {
-              alert({
-                message: "An error occurred while adding an item to your list.",
-                okButtonText: "OK"
-              });
-              this.grocery = "";
-            }
-          )
+          // .subscribe(
+          //   groceryObject => {
+          //     this.groceryList.unshift(groceryObject);
+          //     this.grocery = "";
+          //   },
+          //   () => {
+          //     alert({
+          //       message: "An error occurred while adding an item to your list.",
+          //       okButtonText: "OK"
+          //     });
+          //     this.grocery = "";
+          //   }
+          // )
       }
-
+      delete(id: string) {
+        // this.groceryListService.delete(id)
+        //   .subscribe(
+        //     groceryObject => {
+        //         var currentGrocery = this.groceryList.filter(g => g.id == id);
+        //         var indexOfGrocery = this.groceryList.indexOf(currentGrocery[0]);
+        //             this.groceryList.splice(indexOfGrocery, 1);
+        //     },
+        //     () => {
+        //       alert({
+        //         message: "An error occurred while removing an item to your list.",
+        //         okButtonText: "OK"
+        //       });
+        //     }
+        //   )
+      }
       share() {
         let listString = this.groceryList
           .map(grocery => grocery.name)
@@ -52,16 +70,16 @@ export class ListComponent implements OnInit {
           .trim();
         SocialShare.shareText(listString);
       }
-      
+
   ngOnInit() {
     this.isLoading = true;
-  this.groceryListService.load()
-    .subscribe(loadedGroceries => {
+  var loadedGroceries = this.groceryListService.load();
+    // .subscribe(loadedGroceries => {
       loadedGroceries.forEach((groceryObject) => {
         this.groceryList.unshift(groceryObject);
       });
       this.isLoading = false;
       this.listLoaded = true;
-    });
+    // });
 }
 }

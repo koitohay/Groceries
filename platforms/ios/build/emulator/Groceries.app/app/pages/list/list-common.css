@@ -11,6 +11,9 @@
 TextField {
   color: white;
 }
+.grid-back{
+  background-color: gray;
+}
 ListView {
   opacity: 0;
 }

@@ -83,6 +83,7 @@
 		2A0E850AC8F04BC1A61AF13B /* unchecked_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E98E090228AE4DAA94B05AB7 /* unchecked_white@3x.png */; };
 		3E6F6B1BB5FD4DB39BD4C85A /* TNSWidgets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4166F12C7F7E4B1DB3185DD2 /* TNSWidgets.framework */; };
 		9F38090E18FD4201B2118222 /* TNSWidgets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4166F12C7F7E4B1DB3185DD2 /* TNSWidgets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ED77C69327174BD494E0B096 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBC888C51C4487BAD3A4870 /* CouchbaseLite.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -183,6 +184,7 @@
 		040EA7D779364C4F9CC80636 /* unchecked_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unchecked_white@2x.png"; path = "Groceries/Resources/unchecked_white@2x.png"; sourceTree = "<group>"; };
 		E98E090228AE4DAA94B05AB7 /* unchecked_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unchecked_white@3x.png"; path = "Groceries/Resources/unchecked_white@3x.png"; sourceTree = "<group>"; };
 		4166F12C7F7E4B1DB3185DD2 /* TNSWidgets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TNSWidgets.framework; path = "$(SRCROOT)/../../node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework"; sourceTree = "<group>"; };
+		DEBC888C51C4487BAD3A4870 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchbaseLite.framework; path = "$(SRCROOT)/../../node_modules/nativescript-couchbase/platforms/ios/CouchbaseLite.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E6F6B1BB5FD4DB39BD4C85A /* TNSWidgets.framework in Frameworks */,
+				ED77C69327174BD494E0B096 /* CouchbaseLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				4166F12C7F7E4B1DB3185DD2 /* TNSWidgets.framework */,
+				DEBC888C51C4487BAD3A4870 /* CouchbaseLite.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -626,6 +630,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../node_modules/tns-core-modules-widgets/platforms/ios\"",
+					"\"$(SRCROOT)/../../node_modules/nativescript-couchbase/platforms/ios\"",
 				);
 			};
 			name = Debug;
@@ -648,6 +653,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../node_modules/tns-core-modules-widgets/platforms/ios\"",
+					"\"$(SRCROOT)/../../node_modules/nativescript-couchbase/platforms/ios\"",
 				);
 			};
 			name = Release;

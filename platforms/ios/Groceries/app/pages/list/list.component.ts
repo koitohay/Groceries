@@ -30,7 +30,9 @@ export class ListComponent implements OnInit {
         let textField = <TextField>this.groceryTextField.nativeElement;
         textField.dismissSoftInput();
       
-        this.groceryListService.add(this.grocery)
+        var groceryObject = this.groceryListService.add(this.grocery)
+        // this.groceryList.unshift(groceryObject);
+        //       this.grocery = "";
           .subscribe(
             groceryObject => {
               this.groceryList.unshift(groceryObject);
@@ -71,8 +73,8 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
-  this.groceryListService.load()
-    .subscribe(loadedGroceries => {
+  var loadedGroceries = this.groceryListService.load()
+  .subscribe(loadedGroceries => {
       loadedGroceries.forEach((groceryObject) => {
         this.groceryList.unshift(groceryObject);
       });
